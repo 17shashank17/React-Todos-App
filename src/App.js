@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import AddWorks from './Components/addwork';
+import Works from './Components/Work';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  handleAddNewWork(work){
+    console.log('app',work);
+    return <h6>{work['Name of work']} - {work['Date']} - {work['User']}</h6>
+  }
+
+  render(){
+    return (
+      <div className="App">
+        Welcome
+        <AddWorks test=" Shashank" addNewWork={this.handleAddNewWork.bind(this)} />
+        <Works testname=" Shashank" />
+        
+      </div>
+    );
+  }
 }
 
 export default App;
