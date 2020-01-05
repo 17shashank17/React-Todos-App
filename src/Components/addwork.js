@@ -13,17 +13,16 @@ class AddWorks extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        console.log('form submitted');
-        // console.log(this.form)
-        console.log(this.refs.work.value)
+        // console.log('form submitted');
+        // console.log(this.refs.work.value)
         this.setState({
             newWork:{
-                'Name of Work':this.refs.work.value,
+                'Name Of Work':this.refs.work.value,
                 'Date': this.refs.date.value,
                 'User': this.refs.user.value
             }
         },()=>{
-            console.log(this.state);
+            // console.log(this.state);
             this.props.addNewWork(this.state.newWork);
         });
     }
