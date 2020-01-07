@@ -16,12 +16,12 @@ class App extends Component {
           'User': 'Shashank' 
         },
         {
-          'Name Of Work': 'Complete React',
+          'Name Of Work': 'Complete React-Native',
           'Date': '12/01/20',
           'User': 'Aakash' 
         },
         {
-          'Name Of Work': 'Complete React',
+          'Name Of Work': 'Complete Hackverse',
           'Date': '12/01/20',
           'User': 'Manan' 
         },
@@ -41,12 +41,27 @@ class App extends Component {
     //works.push(<h6>{work['Name of work']} - {work['Date']} - {work['User']}</h6>)
   }
 
+  deleteWork(work){
+    console.log(work)
+    console.log('delete clicked')
+    let works=this.state.Work;
+    let newWork=works.map(work_to_be_deleted => {
+      if(work_to_be_deleted['Name Of Work'] !== work)
+        return work_to_be_deleted
+      else
+        return {'Name Of Work': 'Deleted','Date':'X','User':'X'}
+    })
+    console.log(newWork);
+    this.setState({Work:newWork});
+    console.log(this.state.Work)
+  }
+
   render(){
     return (
       <div className="App">
         Welcome
         <AddWorks test=" Shashank" addNewWork={this.handleAddNewWork.bind(this)} />
-        <Works Work={this.state.Work}/>
+        <Works onDelete={this.deleteWork.bind(this)} Work={this.state.Work}/>
         
       </div>
     );

@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 
 class Works extends Component {
 
+    handleDelete(work){
+        console.log(work)
+        this.props.onDelete(work);
+
+    }
+
     render(){
         // console.log('Hi2',this.props.Work)
         // let work_items;
@@ -14,7 +20,8 @@ class Works extends Component {
         return (
             <div className="App">
                 {this.props.Work.map(work =>{
-                    return <li><strong>{work['Name Of Work']}</strong> - {work['Date']} - {work['User']}</li>
+                    return <li><strong>{work['Name Of Work']}</strong> - {work['Date']} - {work['User']}  
+                    <a href="#" onClick={this.handleDelete.bind(this,work['Name Of Work'])}>Delete Now</a></li>
                 })}
             </div>
         );
